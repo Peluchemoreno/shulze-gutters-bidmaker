@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" id="whole">
+  <head>
+    <!-- do not change or delete this file, it is for making the password page -->
+    <!-- in this version the 'phone' section is in the incorrect position. it should be on its own line -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      content="width=device-width"
+      initial-scale="1.0"
+      maximum-scale="1.0"
+      user-scalable="0"
+      name="viewport"
+    />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="img/icons8-inspection-40.png" type="image/x-icon" />
+    <title>Bid Maker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <div class="form-wrapper">
+      <form>
+        <div class="header-container">
+          <img class="header-logo" src="./img/SGS-logo.png" alt="" />
+          <div class="date-container">
+            <label for="date">Date:</label>
+            <input id="date" class="input form-field" type="date" />
+          </div>
+        </div>
+        <div class="customer-details-container">
+          <div class="customer-details-header">
+            <h2>CUSTOMER DETAILS</h2>
+          </div>
+          <div class="customer-details-body">
+            <label class="label" for="name">Name:</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              maxlength="100"
+              minlength="1"
+            />
+
+            <label class="label" for="phone">Phone:</label>
+            <input type="text" name="phone" id="phone" />
+          </div>
+          <div class="customer-details-body2">
+            <label class="label" for="address">Address:</label>
+            <input type="text" name="address" id="address" />
+
+            <label class="label" for="email">Email:</label>
+            <input type="email" name="email" id="email" />
+          </div>
+        </div>
+
+        <div class="section2">
+          <div class="canvas-side">
+            <canvas id="canvas"></canvas>
+            <div class="tools-bar">
+              <select id="tool-select">
+                <option value="gutter">Gutter</option>
+                <option value="gutter-w-screen">Gutter w/ Screen</option>
+                <option value="existing-gutter">Existing Gutter</option>
+                <option value="downspout">Downspout</option>
+                <option value="drop">Drop to lower</option>
+                <option value="valley-shield">Valley Shield</option>
+                <option value="free-text">Elbow Seq/Piece Length</option>
+              </select>
+              <input
+                type="number"
+                min="10"
+                max="50"
+                id="grid-size"
+                value="14"
+              />
+              <select id="color">
+                <option
+                  value="black"
+                  style="background-color: black; color: white"
+                >
+                  Black
+                </option>
+                <option value="red" style="background-color: red; color: white">
+                  Red
+                </option>
+                <option
+                  value="cyan"
+                  style="background-color: cyan; color: black"
+                >
+                  Cyan
+                </option>
+                <option
+                  value="blue"
+                  style="background-color: blue; color: white"
+                >
+                  Blue
+                </option>
+                <option
+                  value="green"
+                  style="background-color: #2efc05; color: black"
+                >
+                  Green
+                </option>
+                <option
+                  value="magenta"
+                  style="background-color: magenta; color: black"
+                >
+                  Magenta
+                </option>
+                <option value="yellow" style="background-color: yellow">
+                  Yellow
+                </option>
+              </select>
+              <button type="button" class="undo-button" onclick="undo()">
+                Undo
+              </button>
+              <button type="button" id="clear-button">Clear</button>
+              <button type="button" id="finish-button" onclick="finish()">
+                Done
+              </button>
+            </div>
+            <label for="job-notes" class="job-notes">
+              JOB DESCRIPTION / NOTES
+            </label>
+            <textarea
+              name="job-description"
+              id="job-notes"
+              rows="10"
+            ></textarea>
+          </div>
+          <div class="material-side">
+            <div class="material-details">
+              <div class="material-details-header">
+                <h3>MATERIAL</h3>
+              </div>
+              <div class="material-details-body">
+                <label for="coil-color" class="coil-color"
+                  >Coil Color/Size:</label
+                >
+                <input type="text" name="coil-color" id="coil-color" />
+
+                <label for="coil-footage" class="coil-footage"
+                  >Coil Footage:</label
+                >
+                <input
+                  type="text"
+                  min="0"
+                  max="99999"
+                  name="coil-footage"
+                  id="coil-footage"
+                />
+
+                <label for="downspout-color" class="downspout-color"
+                  >DS Color/Size:</label
+                >
+                <input type="text" name="color" id="downspout-color" />
+
+                <label for="ds-footage" class="ds-footage">DS Footage:</label>
+                <input
+                  type="text"
+                  min="0"
+                  max="99999"
+                  name="ds-footage"
+                  id="ds-footage"
+                />
+
+                <label for="splash-guards" class="splashBlocks"
+                  >Splash Guards:</label
+                >
+                <input type="text" name="splash-guards" id="splash-guards" />
+
+                <label for="ism" class="ism">ISM:</label>
+                <input type="text" min="0" max="99999" name="ism" id="ism" />
+
+                <label for="osm" class="osm">OSM:</label>
+                <input type="text" min="0" max="99999" name="osm" id="osm" />
+
+                <label for="custom-miters" class="custom-miters"
+                  >Custom Miters:</label
+                >
+                <input
+                  type="text"
+                  min="0"
+                  max="99999"
+                  name="custom-miters"
+                  id="custom-miters"
+                />
+
+                <label for="end-caps">End Caps:</label>
+                <input
+                  min="0"
+                  max="99999"
+                  type="text"
+                  name="end-caps"
+                  id="end-caps"
+                />
+
+                <label for="a-elbows">A's:</label>
+                <input
+                  min="0"
+                  max="99999"
+                  type="text"
+                  name="a-elbows"
+                  id="a-elbows"
+                />
+
+                <label for="b-elbows">B's:</label>
+                <input
+                  min="0"
+                  max="99999"
+                  type="text"
+                  name="b-elbows"
+                  id="b-elbows"
+                />
+
+                <label for="offsets">Offsets:</label>
+                <input
+                  min="0"
+                  max="99999"
+                  type="text"
+                  name="offsets"
+                  id="offsets"
+                />
+
+                <label for="splash-blocks">Splash Blocks:</label>
+                <input
+                  min="0"
+                  max="99999"
+                  type="text"
+                  name="splash-blocks"
+                  id="splash-blocks"
+                />
+              </div>
+            </div>
+            <div class="pricing-container">
+              <div class="extra-and-pricing-header">
+                <h3>EXTRA</h3>
+              </div>
+              <div class="extra-and-pricing-body">
+                <label for="drip-edge">Drip Edge:</label>
+                <input
+                  min="0"
+                  max="99999"
+                  type="text"
+                  name="drip-edge"
+                  id="drip-edge"
+                />
+
+                <label for="screen" id="screen-label">Screen:</label>
+                <textarea id="screen" rows="6"></textarea>
+
+                <label for="other">Gutter and Ds:</label>
+                <input type="text" name="other" id="other" placeholder="$" />
+
+                <label for="additions3" id="additions3-label">Additions:</label>
+                <textarea rows="3" id="additions3" placeholder="$"></textarea>
+
+                <label for="additions" id="additions2-label">Additions:</label>
+                <textarea rows="3" id="additions" placeholder="$"></textarea>
+
+                <label for="additions2" id="additions-label">Additions:</label>
+                <textarea rows="3" id="additions2" placeholder="$"></textarea>
+
+                <label for="total">Grand Total:</label>
+                <input type="text" name="total" id="total" placeholder="$" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+      integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="scripts.js"></script>
+    <script></script>
+  </body>
+</html>

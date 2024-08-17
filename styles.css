@@ -1,0 +1,327 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+body {
+  position: relative;
+}
+
+.cancel-button,
+.set-button {
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 14px;
+  background-color: transparent;
+  font-weight: bold;
+}
+
+.cancel-button:hover,
+.set-button:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.selector-button {
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid black;
+  border-radius: 5px;
+}
+
+.selector-button:last-of-type {
+  border-bottom: 2px solid rgb(126, 126, 126);
+}
+
+.selector-button:hover {
+  cursor: pointer;
+}
+
+.color-preview {
+  height: 25px;
+  width: 25px;
+  background-color: black;
+  border-radius: 50%;
+  border: 2px solid black;
+  transition: background-color 0.5s;
+  transition: border 0.5s;
+}
+
+.red {
+  background-color: red;
+}
+
+.cyan {
+  background-color: cyan;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.green {
+  background-color: #2efc05;
+}
+
+.pink {
+  background-color: magenta;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.black {
+  background-color: #000;
+  color: #fff;
+}
+
+.visible {
+  display: grid;
+}
+
+#canvas {
+  background-size: cover;
+  border: 1px solid #000000;
+  border-top: none;
+  border-left: none;
+}
+
+.header-logo {
+  width: 300px;
+  height: 150px;
+  margin-left: 20px;
+  padding: 10px;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 140px;
+}
+
+.date-container {
+  align-self: flex-end;
+  padding: 20px;
+}
+
+.customer-details-header {
+  color: rgb(255, 255, 255);
+  background-color: black;
+  margin: 0;
+  padding: 10px;
+  letter-spacing: 3px;
+  border: 2px solid black;
+}
+
+.customer-details-body {
+  display: grid;
+  grid-template-columns: 1fr 7fr 1fr 7fr;
+  margin-bottom: 0;
+}
+
+.customer-details-body2 {
+  display: grid;
+  grid-template-columns: 1fr 7fr;
+  margin-top: 0px !important;
+}
+
+
+#email {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.label {
+  width: 100px;
+}
+
+select {
+  text-align: right;
+  border: none;
+}
+
+.form-wrapper {
+  margin: 0 auto;
+  max-width: 820px;
+}
+
+.section2 {
+  display: flex;
+  max-width: 820px;
+}
+
+.canvas-side,
+.material-side {
+  display: inline-block;
+}
+
+.material-side {
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+}
+
+.canvas-side {
+  border-left: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+.material-side {
+  flex-grow: 1;
+}
+
+
+.material-details-header,
+.extra-and-pricing-header,
+.job-notes-header {
+  text-align: center;
+  padding: 5px;
+  background-color: black;
+  color: white;
+  letter-spacing: 3px;
+}
+
+.job-notes {
+  background-color: black;
+
+  display: block;
+  letter-spacing: 3px;
+  margin-top: 5px;
+}
+
+#job-notes {
+  width: 100%;
+  padding: 5px;
+  font-size: 11px;
+  resize: none;
+  border-right: none;
+  border-bottom: none;
+  border-left: 1px solid black;
+}
+
+.material-details-body,
+.extra-and-pricing-body {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+form {
+  padding: 10px;
+  width: 100%;
+}
+
+label {
+  background-color: rgb(65, 65, 65);
+  color: rgb(255, 255, 255);
+
+  padding: 5px 10px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  min-height: 15px;
+}
+
+.material-details-body input,
+.extra-and-pricing-body input {
+  text-align: right;
+  width: 100%;
+  font-size: 10px;
+  padding: 3px;
+}
+
+.material-details-body label,
+.extra-and-pricing-body label {
+  font-size: 10px;
+  font-weight: bolder;
+}
+
+label,
+input {
+  border: none;
+  border-bottom: 1px solid black;
+  padding: 5px;
+}
+
+.tools-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0;
+  padding: 0px 5px;
+  max-width: 500px;
+}
+
+.tools-bar button,
+.tools-bar input,
+.tools-bar select {
+  border-radius: 5px;
+  padding: 5px 10px;
+  background-color: silver;
+  flex-grow: 1;
+  margin: auto 3px;
+  max-height: 30px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.tools-bar select {
+  font-weight: 400;
+}
+
+#clear-button {
+  background-color: rgb(241, 112, 112);
+}
+
+#tool-select {
+  text-align: left;
+  background-color: silver;
+  border: none;
+  border-radius: 5px;
+  width: 70px;
+}
+
+#finish-button {
+  background: rgb(94, 235, 94);
+}
+
+#grid-size {
+  max-width: 70px;
+}
+
+@media print {
+  body {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}
+
+
+#additions,
+#additions2,
+#additions3,
+#screen {
+  resize: none;
+  padding: 1px;
+  text-align: right;
+  overflow: hidden;
+  font-size: 10px;
+  scroll-behavior: none;
+}
+
+#additions-label,
+#additions2-label,
+#screen-label {
+  display: flex;
+  align-items: center;
+}
+
+#color {
+  text-align: center;
+  padding: 0;
+  height: 25px;
+}
