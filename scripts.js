@@ -1,34 +1,18 @@
 let undoBtn = document.querySelector('.undo-button');
 const clearButton = document.querySelector('#clear-button');
-const ongoingTouches = [];
 let colorPicker = document.querySelector('#color');
 let color = colorPicker.value;
-const module = document.querySelector('.module');
-const cancelBtn = document.querySelector('.cancel-button');
-const setBtn = document.querySelector('.set-button')
+const tool = document.querySelector('#tool-select');
+const gridNumber = document.querySelector('#grid-size');
 const body = document.querySelector('body');
-const colorPreview = document.querySelector('.color-preview');
-const redBtn = document.querySelector('.red');
-const cyanBtn = document.querySelector('.cyan');
-const blueBtn = document.querySelector('.blue');
-const greenBtn = document.querySelector('.green');
-const pinkBtn = document.querySelector('.pink');
-const yellowBtn = document.querySelector('.yellow');
-const blackBtn = document.querySelector('.black');
-
-
-let startX, startY;
-let currentX, currentY;
 const canvas = document.getElementById('canvas');
 let ctx = canvas.getContext('2d');
 let isDrawing = false;
-let paths = [];
-let newPath = [];
-points = [];
 let index = -1;
-let indexCopy = -1;
-const tool = document.querySelector('#tool-select');
-const gridNumber = document.querySelector('#grid-size');
+let paths = [];
+const ongoingTouches = [];
+let startX, startY;
+let currentX, currentY;
 let elbowSequence;
 let pieceLength;
 
@@ -49,13 +33,13 @@ function updateGridButton(element) {
 };
 
 function drawGrid(){
-  for (x = 0; x < canvas.width; x += gridSize) {
+  for (let x = 0; x < canvas.width; x += gridSize) {
     ctx.moveTo(x, 0);
     ctx.lineTo(x, canvas.height);
     ctx.strokeStyle = 'lightgray';
     ctx.stroke();
   }
-  for (y = 0; y < canvas.height; y += gridSize) {
+  for (let y = 0; y < canvas.height; y += gridSize) {
     ctx.moveTo(0, y);
     ctx.lineTo(canvas.width, y);
     ctx.stroke();
@@ -77,24 +61,6 @@ function startup() {
 
   window.chrome ? document.querySelector('.customer-details-body2').style.marginTop = '-16px' : document.querySelector('.customer-details-body2').style.marginTop = 'auto'
 }
-
-document.addEventListener("DOMContentLoaded", startup);
-
-document.body.addEventListener("pointerdown", function (e) {
-  if (e.target == canvas) {
-    e.preventDefault();
-  }
-}, { passive: false });
-document.body.addEventListener("touchend", function (e) {
-  if (e.target == canvas) {
-    e.preventDefault();
-  }
-}, { passive: false });
-document.body.addEventListener("touchmove", function (e) {
-  if (e.target == canvas) {
-    e.preventDefault();
-  }
-}, { passive: false });
 
 function updateColor(context) {
   let color = document.querySelector('#color').value;
@@ -140,7 +106,6 @@ function handleDraw() {
   updateColor(ctx);
   ctx.beginPath();
   ctx.moveTo(newX, newY);
-  console.log(paths)
 }
 
 function drawHollowCircle(size){
@@ -212,12 +177,13 @@ canvas.addEventListener('pointerdown', function (event) {
     ctx.font = '1000 12px Arial';
     ctx.fillStyle = 'black';
     ctx.textAlign = 'center';
+    index += 1;
     if (!userInput) {
       return
     } else {
       ctx.fillText(`${userInput}`, startX, startY);
-      newPath.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
-      indexCopy += 1;
+      paths.push(ctx.getImageData(0, 0, canvas.width, canvas.height))
+      updateGridButton(undoBtn)
     }
   }
 });
@@ -283,7 +249,6 @@ canvas.addEventListener('pointermove', function (event) {
 canvas.addEventListener('pointerup', function (event) {
   event.preventDefault();
   isDrawing = false;
-  const ctx = canvas.getContext('2d');
   paths.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
   index += 1;
   ctx.moveTo(currentX, currentY);
@@ -293,7 +258,6 @@ canvas.addEventListener('pointerup', function (event) {
   updateGridButton(undoBtn);
 });
 
-canvas.addEventListener('touchcancel', handleCancel);
 
 function clear() {
   const canvas = document.getElementById('canvas');
@@ -304,13 +268,21 @@ function clear() {
   startup();
 }
 
-clearButton.addEventListener('click', clear);
+function undo() {
+  if (index <= 0) {
+    clear();
+  } else {
+    index -= 1;
+    paths.pop();
+    ctx.putImageData(paths[index], 0, 0);
+  }
+}
 
 function handleCancel(evt) {
   evt.preventDefault();
   log('touchcancel.');
   const touches = evt.changedTouches;
-
+  
   for (let i = 0; i < touches.length; i++) {
     let idx = ongoingTouchIndexById(touches[i].identifier);
     ongoingTouches.splice(idx, 1);  // remove it; we're done
@@ -324,28 +296,13 @@ function copyTouch({ identifier, pageX, pageY }) {
 function ongoingTouchIndexById(idToFind) {
   for (let i = 0; i < ongoingTouches.length; i++) {
     const id = ongoingTouches[i].identifier;
-
+    
     if (id === idToFind) {
       return i;
     }
   }
   return -1;   
 }
-
-function undo() {
-  if (index <= 0) {
-    clear();
-  } else {
-    index -= 1;
-    indexCopy -= 1;
-
-    newPath.pop();
-    paths.pop();
-    ctx.putImageData(paths[index], 0, 0);
-  }
-}
-
-
 
 function finish() {
   window.onbeforeprint = (event) => {
@@ -355,6 +312,28 @@ function finish() {
   };
   window.print();
 }
+
+canvas.addEventListener('touchcancel', handleCancel);
+clearButton.addEventListener('click', clear);
+document.addEventListener("DOMContentLoaded", startup);
+
+document.body.addEventListener("pointerdown", function (e) {
+  if (e.target == canvas) {
+    e.preventDefault();
+  }
+}, { passive: false });
+
+document.body.addEventListener("touchend", function (e) {
+  if (e.target == canvas) {
+    e.preventDefault();
+  }
+}, { passive: false });
+
+document.body.addEventListener("touchmove", function (e) {
+  if (e.target == canvas) {
+    e.preventDefault();
+  }
+}, { passive: false });
 
 window.onafterprint = (event) => {
   toolsBar = document.querySelector('.tools-bar');
