@@ -131,7 +131,6 @@ body {
   margin-top: 0px !important;
 }
 
-
 #email {
   flex-grow: 1;
   text-align: left;
@@ -174,7 +173,6 @@ select {
 .material-side {
   flex-grow: 1;
 }
-
 
 .material-details-header,
 .extra-and-pricing-header,
@@ -300,11 +298,18 @@ input {
   }
 }
 
-
 #additions,
-#additions2,
 #additions3,
 #screen {
+  resize: none;
+  padding: 1px;
+  text-align: right;
+  overflow: hidden;
+  font-size: 10px;
+  scroll-behavior: none;
+}
+
+#additions2 {
   resize: none;
   padding: 1px;
   text-align: right;
@@ -324,4 +329,36 @@ input {
   text-align: center;
   padding: 0;
   height: 25px;
+}
+
+.input__section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.input__section > input ~ input{
+  border: 1px solid black;
+  border-top: none;
+  border-right: none;
+}
+
+.size__header{
+  display: grid;
+  background-color: rgb(65, 65, 65);
+  color: white;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: center;
+  border-bottom: 1px solid black;
+  padding: 3px 0;
+}
+
+.size__header_section_label{
+  font-size: 12px;
+  font-weight: bold;
+  text-align: left;
+  padding-left: 5px;
+}
+
+.offset-input{
+  height: 27px;
 }

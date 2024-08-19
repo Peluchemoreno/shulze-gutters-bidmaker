@@ -22,9 +22,13 @@
     <div class="form-wrapper">
       <form>
         <div class="header-container">
-          <img class="header-logo" src="./img/SGS-logo.png" alt="" />
+          <img
+            class="header-logo"
+            src="./img/SGS-logo.png"
+            alt="schulze gutter services logo"
+          />
           <div class="date-container">
-            <label for="date">Date:</label>
+            <label for="date">Install Date:</label>
             <input id="date" class="input form-field" type="date" />
           </div>
         </div>
@@ -134,111 +138,187 @@
               <div class="material-details-header">
                 <h3>MATERIAL</h3>
               </div>
+              <div class="size__header">
+                <div class="size__header_section_label">Size</div>
+                <div class="size__header_section">5"</div>
+                <div class="size__header_section">6"</div>
+              </div>
               <div class="material-details-body">
-                <label for="coil-color" class="coil-color"
-                  >Coil Color/Size:</label
-                >
-                <input type="text" name="coil-color" id="coil-color" />
+                <label for="coil-color" class="coil-color">Coil Color</label>
+                <div class="input__section">
+                  <input type="text" name="coil-color" id="coil-color" />
+                  <input type="text" name="coil-color" id="coil-color" />
+                </div>
 
                 <label for="coil-footage" class="coil-footage"
-                  >Coil Footage:</label
+                  >Coil Qty (Lbs)</label
                 >
-                <input
-                  type="text"
-                  min="0"
-                  max="99999"
-                  name="coil-footage"
-                  id="coil-footage"
-                />
+                <div class="input__section">
+                  <input
+                    type="text"
+                    min="0"
+                    max="99999"
+                    name="coil-footage"
+                    id="coil-footage"
+                  />
+                  <input
+                    type="text"
+                    min="0"
+                    max="99999"
+                    name="coil-footage"
+                    id="coil-footage1"
+                  />
+                </div>
 
                 <label for="downspout-color" class="downspout-color"
-                  >DS Color/Size:</label
+                  >Left End Caps</label
                 >
-                <input type="text" name="color" id="downspout-color" />
+                <div class="input__section">
+                  <input type="text" name="color" id="downspout-color" />
+                  <input type="text" name="color" id="downspout-color" />
+                </div>
 
-                <label for="ds-footage" class="ds-footage">DS Footage:</label>
-                <input
-                  type="text"
-                  min="0"
-                  max="99999"
-                  name="ds-footage"
-                  id="ds-footage"
-                />
+                <label for="ds-footage" class="ds-footage"
+                  >Right End Caps</label
+                >
+                <div class="input__section">
+                  <input
+                    type="text"
+                    min="0"
+                    max="99999"
+                    name="ds-footage"
+                    id="ds-footage"
+                  />
+                  <input
+                    type="text"
+                    min="0"
+                    max="99999"
+                    name="ds-footage"
+                    id="ds-footage"
+                  />
+                </div>
 
                 <label for="splash-guards" class="splashBlocks"
-                  >Splash Guards:</label
+                  >Outside Miters</label
                 >
-                <input type="text" name="splash-guards" id="splash-guards" />
+                <div class="input__section">
+                  <input type="text" name="splash-guards" id="splash-guards" />
+                  <input type="text" name="splash-guards" id="splash-guards" />
+                </div>
 
-                <label for="ism" class="ism">ISM:</label>
-                <input type="text" min="0" max="99999" name="ism" id="ism" />
+                <label for="ism" class="ism">Inside Miters</label>
+                <div class="input__section">
+                  <input type="text" min="0" max="99999" name="ism" id="ism" />
+                  <input type="text" min="0" max="99999" name="ism" id="ism" />
+                </div>
 
-                <label for="osm" class="osm">OSM:</label>
-                <input type="text" min="0" max="99999" name="osm" id="osm" />
+                <label for="osm" class="osm">Outside Bay Miters</label>
+                <div class="input__section">
+                  <input type="text" min="0" max="99999" name="osm" id="osm" />
+                  <input type="text" min="0" max="99999" name="osm" id="osm" />
+                </div>
 
                 <label for="custom-miters" class="custom-miters"
-                  >Custom Miters:</label
+                  >Inside Bay Miters</label
                 >
-                <input
-                  type="text"
-                  min="0"
-                  max="99999"
-                  name="custom-miters"
-                  id="custom-miters"
-                />
-
-                <label for="end-caps">End Caps:</label>
-                <input
-                  min="0"
-                  max="99999"
-                  type="text"
-                  name="end-caps"
-                  id="end-caps"
-                />
-
-                <label for="a-elbows">A's:</label>
-                <input
-                  min="0"
-                  max="99999"
-                  type="text"
-                  name="a-elbows"
-                  id="a-elbows"
-                />
-
-                <label for="b-elbows">B's:</label>
-                <input
-                  min="0"
-                  max="99999"
-                  type="text"
-                  name="b-elbows"
-                  id="b-elbows"
-                />
-
-                <label for="offsets">Offsets:</label>
-                <input
-                  min="0"
-                  max="99999"
-                  type="text"
-                  name="offsets"
-                  id="offsets"
-                />
-
-                <label for="splash-blocks">Splash Blocks:</label>
-                <input
-                  min="0"
-                  max="99999"
-                  type="text"
-                  name="splash-blocks"
-                  id="splash-blocks"
-                />
+                <div class="input__section">
+                  <input
+                    type="text"
+                    min="0"
+                    max="99999"
+                    name="custom-miters"
+                    id="custom-miters"
+                  />
+                  <input
+                    type="text"
+                    min="0"
+                    max="99999"
+                    name="custom-miters"
+                    id="custom-miters"
+                  />
+                </div>
+              </div>
+              <div class="extra-and-pricing-header">
+                <h3>DOWNSPOUT</h3>
+              </div>
+              <div class="size__header">
+                <div class="size__header_section_label">Size</div>
+                <div class="size__header_section">2x3</div>
+                <div class="size__header_section">3x4</div>
               </div>
             </div>
             <div class="pricing-container">
-              <div class="extra-and-pricing-header">
-                <h3>EXTRA</h3>
-              </div>
               <div class="extra-and-pricing-body">
-                <label for="drip-edge">Drip Edge:</label>
+          
+
+                <label for="b-elbows">Downspout Qty</label>
+                <div class="input__section">
+                  <input
+                    min="0"
+                    max="99999"
+                    type="text"
+                    name="b-elbows"
+                    id="b-elbows"
+                  />
+                  <input
+                    min="0"
+                    max="99999"
+                    type="text"
+                    name="b-elbows"
+                    id="b-elbows"
+                  />
+                </div>
+
+                <label for="offsets">As</label>
+                <div class="input__section">
+                  <input
+                    min="0"
+                    max="99999"
+                    type="text"
+                    name="offsets"
+                    id="offsets"
+                  />
+                  <input
+                    min="0"
+                    max="99999"
+                    type="text"
+                    name="offsets"
+                    id="offsets"
+                  />
+                </div>
+
+                <label for="splash-blocks">Bs</label>
+                <div class="input__section">
+                  <input
+                    min="0"
+                    max="99999"
+                    type="text"
+                    name="splash-blocks"
+                    id="splash-blocks"
+                  />
+                  <input
+                    min="0"
+                    max="99999"
+                    type="text"
+                    name="splash-blocks"
+                    id="splash-blocks"
+                  />
+                </div>
+
+                <label for="screen" id="screen-label"
+                  >Offset(s)-(Qty), Size</label
+                >
+                <div class="input__section">
+                  <!-- <textarea id="screen" rows="6"></textarea> -->
+                  <input class="offset-input" type="text">
+                  <input class="offset-input" type="text">
+                  <input class="offset-input" type="text">
+                  <input class="offset-input" type="text">
+                  <input class="offset-input" type="text">
+                  <input class="offset-input" type="text">
+                </div>
+
+                <label for="drip-edge">Zip Screws</label>
                 <input
                   min="0"
                   max="99999"
@@ -247,20 +327,30 @@
                   id="drip-edge"
                 />
 
-                <label for="screen" id="screen-label">Screen:</label>
-                <textarea id="screen" rows="6"></textarea>
+                <label for="other">Straps/Wedges</label>
+                <input type="text" name="other" id="other" />
 
-                <label for="other">Gutter and Ds:</label>
-                <input type="text" name="other" id="other" placeholder="$" />
+                <label for="additions3" id="additions3-label"
+                  >Small Hole Black Mesh</label
+                >
+                <div class="input__section">
+                  <input type="text" name="additions3" id="additions3" />
+                  <input type="text" name="additions3" id="additions3" />
+                </div>
 
-                <label for="additions3" id="additions3-label">Additions:</label>
-                <textarea rows="3" id="additions3" placeholder="$"></textarea>
+                <label for="additions" id="additions2-label"
+                  >LeafBlaster Pro</label
+                >
+                <div class="input__section">
+                  <input type="text" name="additons2" id="additions"></input>
+                  <input type="text" name="additons2" id="additions"></input>
+                </div>
 
-                <label for="additions" id="additions2-label">Additions:</label>
-                <textarea rows="3" id="additions" placeholder="$"></textarea>
-
-                <label for="additions2" id="additions-label">Additions:</label>
-                <textarea rows="3" id="additions2" placeholder="$"></textarea>
+                <label for="additions2" id="additions-label"
+                  >Concrete Splash Blocks</label
+                >
+                <!-- <textarea rows="4" id="additions2"></textarea> -->
+                 <input type="text" name="additions2" id="additions2">
 
                 <label for="total">Grand Total:</label>
                 <input type="text" name="total" id="total" placeholder="$" />
