@@ -19,6 +19,19 @@
   </head>
 
   <body>
+    <div class="modal">
+      <div class="modal__container">
+        <h2 class="container__title">
+          Type in the elbow sequence or the length of the piece. (ex: AABA,
+          57")
+        </h2>
+        <input id="textinput" type="text" class="container__input" />
+        <div class="container__buttons">
+          <button type="button" class="button button_cancel">Cancel</button>
+          <button type="button" class="button button_confirm">OK</button>
+        </div>
+      </div>
+    </div>
     <div class="form-wrapper">
       <form>
         <div class="header-container">
@@ -116,7 +129,7 @@
                   Yellow
                 </option>
               </select>
-              <button type="button" class="undo-button" onclick="undo()">
+              <button type="button" class="undo-button">
                 Undo
               </button>
               <button type="button" id="clear-button">Clear</button>
